@@ -1,0 +1,18 @@
+import math
+
+# Iterasiya funksiyası təyin olunur
+def phi(x):
+    return (math.cos(math.sqrt(x)) - math.sin(math.sqrt(x)))**2 / 4
+
+# Başlanğıc təxmini (intervala baxsaq: [0.0, 0.2])
+x0 = 0.1
+tol = 1e-6
+max_iter = 100
+
+for i in range(max_iter):
+    x1 = phi(x0)
+    if abs(x1 - x0) < tol:
+        break
+    x0 = x1
+
+print(f"Həll təqribən: x = {x1}, iterasiya sayı: {i+1}")
